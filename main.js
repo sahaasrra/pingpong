@@ -22,11 +22,29 @@ var ball = {
 }
 
 function setup(){
-  var canvas =  createCanvas(700,600);
+  var canvas =  createCanvas(700,550);
 }
 
+ function preload()
+ {
+  canvas = createCanvas(800,400);
+	canvas.parent('canvas');
 
-function draw(){
+  video = createCapture(VIDEO);
+	video.size(800,400);
+	video.hide();
+
+  image(video,0,0,800,400);
+
+  poseNet = ml5.poseNet(video,modelloded);
+ } 
+
+ function modelloded()
+ {
+  console.log("Model Is Loaded");
+ }
+
+ function draw(){
 
  background(0); 
 
